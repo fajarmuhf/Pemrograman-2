@@ -7,6 +7,7 @@ public class HaloTest extends TestCase{
 	public HaloTest(String testName){
 		super(testName);
 	}
+	
 	protected void setUp() throws Exception{
 		super.setUp();
 		System.out.println("hello");
@@ -24,7 +25,6 @@ public class HaloTest extends TestCase{
 	public void testAritmetic(){
 		int a = 7;
 		int b = 4;
-		
 		Assert.assertEquals(11,a+b);
 	}
 }
