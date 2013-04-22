@@ -21,5 +21,57 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.18</version>
+    </dependency>
   </dependencies>
+  
+  <build>
+	  <plugins>
+		  <plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-dependency-plugin</artifactId>
+			  <executions>
+				  <execution>
+					<id>copy-dependencies</id>
+					<phase>prepare-package</phase>
+					<goals>
+						<goal>copy-dependencies</goal>
+					</goals>
+					<configuration>
+						<outputDirectory>
+						${project.build.directory}/lib
+						</outputDirectory>
+						<overWriteRelases>
+						true
+						</overWriteRelases>
+						<overWriteSnapshots>
+						true
+						</overWriteSnapshots>
+						<overWriteNewer>
+						true
+						</overWriteNewer>
+					</configuration>
+				  </execution>
+			  </executions>
+		  </plugin>
+		  <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>
+							${project.build.directory}/lib/
+							</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+		  </plugin>
+	  </plugins>
+  </build>
+  
 </project>
