@@ -1,7 +1,7 @@
 package com.belajar.string;
 
 
-public class latihan5 
+public class latihan6 
 {
     public static void main( String[] args )
     {
