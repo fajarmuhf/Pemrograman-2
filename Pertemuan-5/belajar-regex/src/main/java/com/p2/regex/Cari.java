@@ -20,5 +20,6 @@ public class Cari
 			System.out.println("index awal : "+m.start());
 			System.out.println("index akhir : "+m.end());
 		}
+		
 	}
 }
