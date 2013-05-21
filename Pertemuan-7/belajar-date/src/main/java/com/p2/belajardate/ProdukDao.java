@@ -1,4 +1,4 @@
-package com.p2.belajar.jdbc;
+package com.p2.belajardate;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.lang.String;
 
 public class ProdukDao {
     

@@ -44,7 +44,7 @@ public class Produk{
 	public Date getWaktuInput(){
 		return this.waktuinput;
 	}
-	public void setHarga(Date waktuinput){
+	public void setWaktuInput(Date waktuinput){
 		this.waktuinput = waktuinput;
 	}
 	
