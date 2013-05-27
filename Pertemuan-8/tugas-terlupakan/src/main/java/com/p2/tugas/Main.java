@@ -10,6 +10,9 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 import java.lang.String;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
 
 public class Main 
 {
@@ -51,22 +54,39 @@ public class Main
 				System.out.println("=================");
 				System.out.print("Masukan Judul : ");
 				String judul = data.nextLine();
-				System.out.print("Masukan Tanggal Release (YYYY-MM-DD): ");
+				System.out.print("Masukan Tanggal Release (DD-MM-YYYY): ");
 				String tanggal = data.nextLine();
 				System.out.print("Masukan Rating : ");
 				int rating = data.nextInt();
 				System.out.print("Masukan Harga Film : ");
 				BigDecimal harga = data.nextBigDecimal();
-				try{
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tugas_terlupakan","root","");
-					String query = "INSERT INTO film(judul,tglRelease,rating,hargaFilm) values (?,?,"+rating+","+harga+")";
-					PreparedStatement ps = conn.prepareStatement(query);
-					ps.setString(1,judul);
-					ps.setString(2,tanggal);
-					ps.executeUpdate();
-				}catch(SQLException se){
-					Logger.getLogger(Main.class.getName()).log(Level.SEVERE,null,se);
+				
+				try{					
+					final String OLD_FORMAT = "dd-MM-yyyy";
+					final String NEW_FORMAT = "yyyy-MM-dd";
+
+					String oldDateString = tanggal;
+					String newDateString;
+
+					SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
+					Date d = sdf.parse(oldDateString);
+					sdf.applyPattern(NEW_FORMAT);
+					newDateString = sdf.format(d);
+					try{
+						Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tugas_terlupakan","root","");
+						String query = "INSERT INTO film(judul,tglRelease,rating,hargaFilm) values (?,?,"+rating+","+harga+")";
+						PreparedStatement ps = conn.prepareStatement(query);
+						ps.setString(1,judul);
+						ps.setString(2,newDateString);
+						ps.executeUpdate();
+					}catch(SQLException se){
+						Logger.getLogger(Main.class.getName()).log(Level.SEVERE,null,se);
+					}
+				}catch(ParseException pe){
+					
 				}
+				
+				
 				System.out.println("=================");
 			}
 		}

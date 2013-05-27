@@ -1,0 +1,6 @@
+#surefire
+#Mon May 27 15:38:37 WIT 2013
+user.dir=/opt/lampp/htdocs/Dropbox/Tugas/Kuliah/Semester 4/Pemograman 2/Pemrograman-2/Pertemuan-8/tugas-terlupakan
+exec.mainClass=com.p2.tugas.Main
+localRepository=/home/uciha/.m2/repository
+basedir=/opt/lampp/htdocs/Dropbox/Tugas/Kuliah/Semester 4/Pemograman 2/Pemrograman-2/Pertemuan-8/tugas-terlupakan
