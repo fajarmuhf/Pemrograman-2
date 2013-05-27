@@ -1,0 +1,24 @@
+#surefire
+#Mon May 27 15:20:37 WIT 2013
+testClassesDirectory=/opt/lampp/htdocs/Dropbox/Tugas/Kuliah/Semester 4/Pemograman 2/Pemrograman-2/Pertemuan-8/tugas-terlupakan/target/test-classes
+forkMode=once
+classPathUrl.3=/home/uciha/.m2/repository/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar
+classPathUrl.2=/home/uciha/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+useManifestOnlyJar=true
+classPathUrl.1=/opt/lampp/htdocs/Dropbox/Tugas/Kuliah/Semester 4/Pemograman 2/Pemrograman-2/Pertemuan-8/tugas-terlupakan/target/classes
+reportsDirectory=/opt/lampp/htdocs/Dropbox/Tugas/Kuliah/Semester 4/Pemograman 2/Pemrograman-2/Pertemuan-8/tugas-terlupakan/target/surefire-reports
+classPathUrl.0=/opt/lampp/htdocs/Dropbox/Tugas/Kuliah/Semester 4/Pemograman 2/Pemrograman-2/Pertemuan-8/tugas-terlupakan/target/test-classes
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+testSuiteDefinitionTestSourceDirectory=/opt/lampp/htdocs/Dropbox/Tugas/Kuliah/Semester 4/Pemograman 2/Pemrograman-2/Pertemuan-8/tugas-terlupakan/src/test/java
+surefireClassPathUrl.1=/home/uciha/.m2/repository/org/apache/maven/surefire/surefire-api/2.10/surefire-api-2.10.jar
+surefireClassPathUrl.0=/home/uciha/.m2/repository/org/apache/maven/surefire/surefire-junit3/2.10/surefire-junit3-2.10.jar
+runOrder=filesystem
+useSystemClassLoader=true
+excludes0=**/*$*
+isTrimStackTrace=true
+enableAssertions=true
+includes2=**/*TestCase.java
+failIfNoTests=false
+includes1=**/*Test.java
+includes0=**/Test*.java
+childDelegation=false
