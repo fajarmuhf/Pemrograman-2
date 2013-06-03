@@ -143,8 +143,13 @@ public class Main
 										
 										try{
 											Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tugas_terlupakan","root","");
-											String query = "UPDATE film SET judul='"+judul+"',tglRelease='"+newDateString+"',rating="+rating+",hargaFilm="+harga+" WHERE judul = '"+cari+"'";
+											String query = "UPDATE film SET judul=?,tglRelease=?,rating=?,hargaFilm=? WHERE id = ?";
 											PreparedStatement ps = conn.prepareStatement(query);
+											ps.setString(1,judul);
+											ps.setDate(2,new java.sql.Date(d.getTime()) );
+											ps.setInt(3,rating);
+											ps.setBigDecimal(4,harga);
+											ps.setInt(5,rs.getInt("id"));
 											ps.executeUpdate();
 										}catch(SQLException se){
 											Logger.getLogger(Main.class.getName()).log(Level.SEVERE,null,se);
