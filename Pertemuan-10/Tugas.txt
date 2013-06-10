@@ -1,0 +1,31 @@
+1. dikumpulkan dalam bentuk Disk CD (induvidu)
+	Cover CD & Kotak CD (bkn yang plastik kresek / kertas)
+2. Laporan Terdiri :
+	Kata Pengantar
+	Daftar Isi
+	Bab I Pendahuluan
+			Latar Belakang Masalah
+			Masalah yang dihadapi
+			Tujuan Pembuatan Laporan
+			Sistematika Penulisan
+	Bab II Landasan Teori
+			Berisi Teori yg mendukung tentang aplikasi 
+			yang digunakan. C*
+			Contoh : 
+				Java
+				Maven,dkk
+	Bab III Laporan Hasil Praktikum
+			Praktikum 1 - Nama Materi
+			... sd/ ...
+			Praktikum 10 - Nama Materi
+			
+				Format Laporan Praktikum :
+					1. Source Code Program
+					2. Penjelasan Tiap Baris Program (*
+						Termasuk guna importnya
+					3. Screen Shoot Program
+	Bab IV Kesimpulan
+	
+C* Penting, Mesti, Harus, Wajib
+	Dikumpulkan Pas UAS Pemrograman 2 Di SEKJUR beserta Kartu Praktikum + Fotonya.
+	Dilarang Telat.
