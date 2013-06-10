@@ -245,6 +245,9 @@ public class Main
 		//variabel untuk pemilihan
 		int pilih = 0;
 		int pilih2 = 0;
+			System.out.println("=================");
+			System.out.println("Nama : Fajar Muhammad F");
+			System.out.println("Nim : 4511210022");
 		while(pilih != 7){
 			System.out.println("=================");
 			//Menampilkan Keterangan menu pilihan
@@ -297,10 +300,14 @@ public class Main
 					PreparedStatement psTampil = c.prepareStatement(sqlTampil);
 					//Hasil eksekusi query dimasukan kedalam variabel rs 
 					ResultSet rs = psTampil.executeQuery();
+					//Membuat variable untuk menghitung pencarian saat tidak bertemu
+					int hitungPencarian = 1;
 					//menampilkan hasil query
 					while(rs.next()){
 						//Jika Pencarian Data Ditemukan
 						if(cari.equals(rs.getString("nim"))){
+							System.out.println("=================");
+							System.out.println("Data Ditemukan");
 							System.out.println("=================");
 							//Menampilkan nim beserta Isi
 							System.out.println("nim : "+rs.getString("nim"));
@@ -355,7 +362,14 @@ public class Main
 								InputPilihanMataKuliah(noMK,rs.getInt("id"));
 							}
 							}while(pilih2 != 3);
+							hitungPencarian = 0;
 						}
+					}
+					//Data Tidak Ditemukan
+					if(hitungPencarian == 1){
+						System.out.println("=================");
+						System.out.println("Data Tidak Ditemukan");
+						System.out.println("=================");
 					}
 					//menutup koneksi database
 					c.close();
