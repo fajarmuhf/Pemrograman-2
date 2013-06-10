@@ -2,19 +2,34 @@
 package com.p2.tugas;
 
 //mengimport library yang dibutuhkan untuk JDBC dengan menu pilihan
+
+//untuk Membuat Koneksi
 import java.sql.Connection;
+//untuk menyambungkan koneksi database ke driver
 import java.sql.DriverManager;
+//untuk mempersiapkan statement query
 import java.sql.PreparedStatement;
+//Untuk Menghandle Error Sql
 import java.sql.SQLException;
+//untuk mengontrol output logging Level
 import java.util.logging.Level;
+//untuk mengontrol output logging logger
 import java.util.logging.Logger;
+//untuk membuat type data BigDecimal
 import java.math.BigDecimal;
+//untuk mengimput Data
 import java.util.Scanner;
+//untuk membuat type data String
 import java.lang.String;
+//untuk menampilkan hasil dari query yang diekseksusi
 import java.sql.ResultSet;
+//untuk membuat format Date
 import java.text.SimpleDateFormat;
+//untuk membuat type data Date
 import java.util.Date;
+//untuk menghandle Error Konversi Date
 import java.text.ParseException;
+//menghendle error kontruktor
 import java.lang.reflect.InvocationTargetException;
 
 public class Main 
@@ -232,6 +247,7 @@ public class Main
 		int pilih2 = 0;
 		while(pilih != 7){
 			System.out.println("=================");
+			//Menampilkan Keterangan menu pilihan
 			System.out.println("MENU PILIHAN");
 			System.out.println("1. Tampil Daftar Mahasiswa");
 			System.out.println("2. Input Mahasiswa");
@@ -247,18 +263,23 @@ public class Main
 			data.nextLine();
 			if(pilih == 1){
 				System.out.println("=================");
+				//Memanggil fungsi TampilMahasiswa
 				TampilMahasiswa();
 				System.out.println("=================");				
 			}
 			else if(pilih == 2){
 				System.out.println("=================");
 				System.out.print("Masukan nim : ");
+				//Menginput Data dan memasukan ke dalam variabel nim
 				String nim = data.nextLine();
 				System.out.print("Masukan Nama : ");
+				//Menginput Data dan memasukan ke dalam variabel nama
 				String nama = data.nextLine();
 				System.out.print("Masukan Alamat : ");
+				//Menginput Data dan memasukan ke dalam variabel alamat
 				String alamat = data.nextLine();
 				
+				//Memanggil fungsi InputMahasiswa dengan memasukan parameter
 				InputMahasiswa(nim,nama,alamat,1);
 				
 			}
@@ -278,11 +299,16 @@ public class Main
 					ResultSet rs = psTampil.executeQuery();
 					//menampilkan hasil query
 					while(rs.next()){
+						//Jika Pencarian Data Ditemukan
 						if(cari.equals(rs.getString("nim"))){
 							System.out.println("=================");
+							//Menampilkan nim beserta Isi
 							System.out.println("nim : "+rs.getString("nim"));
+							//Menampilkan nama beserta Isi
 							System.out.println("nama : "+rs.getString("nama"));
+							//Menampilkan alamat beserta Isi
 							System.out.println("alamat : "+rs.getString("alamat"));
+							//Menampilkan semester beserta Isi
 							System.out.println("semester : "+rs.getString("smster"));
 							System.out.println("=================");
 							do{
@@ -292,28 +318,40 @@ public class Main
 							System.out.println("2.Tambah MataKuliah");
 							System.out.println("3.Keluar");
 							System.out.print("Pilih : ");
+							//Memasukan Data dan memasukan ke variabel pilih2
 							pilih2 = data.nextInt();
+							//untuk inputan digeser ke baris baru agar dapat menginput string dengan spasi
 							data.nextLine();
+							//Menu Pemilihan Kedua 
+							//Jika Pilih2 = 1
 							if(pilih2 == 1){
 								System.out.println("=================");
 								System.out.print("Masukan nim : ");
+								//Menginput Data ke dalam variabel nim
 								String nim = data.nextLine();
 								System.out.print("Masukan Nama : ");
+								//Menginput Data ke dalam variabel nama
 								String nama = data.nextLine();
 								System.out.print("Masukan Alamat : ");
+								//Menginput Data ke dalam variabel alamat
 								String alamat = data.nextLine();
 								System.out.print("Masukan Semester : ");
+								//Menginput Data ke dalam variabel semester
 								int semester = data.nextInt();
 								
+								//Memanggila fungsi EditMahasiswa dengan memasukan parameter
 								EditMahasiswa(cari,nim,nama,alamat,semester);
 								
-							}
+							}//Jika Pilih2 = 2
 							else if(pilih2 == 2){
 								System.out.println("=================");
 								System.out.println("Pilihan Mata Kuliah");
+								//Memanggil fungsi TampilPilihanMataKuliah
 								TampilPilihanMataKuliah();
 								System.out.print("Masukan No Mata Kuliah : ");
+								//Menginput Data dan memasukan ke variabel noMK
 								int noMK = data.nextInt();
+								//Memanggil fungsi InputPilihanMataKuliah dan memasukan parameternya
 								InputPilihanMataKuliah(noMK,rs.getInt("id"));
 							}
 							}while(pilih2 != 3);
@@ -327,27 +365,40 @@ public class Main
 				}
 			}
 			else if(pilih == 4){
+				System.out.println("=================");
+				//Memanggil Fungsi TampilMataKuliah
 				TampilMataKuliah();
+				System.out.println("=================");
 			}
 			else if(pilih == 5){
 				System.out.println("=================");
 				System.out.print("Masukan kode : ");
+				//Menginput Data dan memasukan ke variabel kode
 				String kode = data.nextLine();
 				System.out.print("Masukan Nama : ");
+				//Menginput Data dan memasukan ke variabel namaMK
 				String namaMK = data.nextLine();
 				System.out.print("Masukan Jumlah SKS : ");
+				//Menginput Data dan memasukan ke variabel jumSks
 				int jumSks = data.nextInt();
 				
-				java.util.Date utilDate = new Date();
+				//Membuat Objek Date baru
+				Date utilDate = new Date();
+				//membuat Objek Date Sql dari Objek Date Java
 				java.sql.Date date = new java.sql.Date(utilDate.getTime());
 				
+				//Memanggil FungsiTambahMataKuliah dengan memasukan parameternya
 				TambahMataKuliah(kode,namaMK,jumSks,date);
 				System.out.println("=================");
 			}
 			else if(pilih == 6){
+				System.out.println("=================");
+				//Memanggil Fungsi TampilMataKuliahAmbil
 				TampilMataKuliahAmbil();
+				System.out.println("=================");
 			}
 		}
+		//Keterangan setelah keluar Program
 		System.out.println("Terima Kasih Sudah Menggunakan Program Ini");
     }
 }
